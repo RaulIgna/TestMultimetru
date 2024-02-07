@@ -1,0 +1,64 @@
+﻿<Window x:Class="TestMultimetru.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestMultimetru"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="500">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+            <TextBlock Text="Multimeter tester" FontSize="38px" HorizontalAlignment="Center" />
+            <StackPanel Orientation="Horizontal" Margin="0,10,200,10">
+                <TextBlock Text="Resource ID:" />
+                <TextBox x:Name="ResourceName" Width="50" Margin="5,0,0,0" Initialized="ResourceName_OnInitialized"
+                         TextChanged="ResourceName_OnTextChanged" />
+                <TextBlock x:Name="ResourceNameTip" Text="! Cannot insert literals" Foreground="Red" FontSize="12"
+                           Visibility="Hidden" Margin="10,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="AutoRange" Margin="0,3,0,0"/>
+                <ComboBox x:Name="SelectedAutoRange" SelectedIndex="1" Margin="5,0,350,0" SelectionChanged="AutoRange_OnSelectionChanged">
+                    <ComboBoxItem>AutoZero OFF</ComboBoxItem>
+                    <ComboBoxItem>AutoZero Once</ComboBoxItem>
+                    <ComboBoxItem>AutoZero On</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Select Range" Margin="0,3,0,0"/>
+                <ComboBox x:Name="SelectedRange" SelectedIndex="1" Margin="5,0,350,0" SelectionChanged="SelectedIndex_OnSelectionChanged">
+                    <ComboBoxItem>0.1</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>100</ComboBoxItem>
+                    <ComboBoxItem>1000</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Select NPLC" Margin="0,3,0,0"/>
+                <ComboBox x:Name="SelectedNPLC" SelectedIndex="6" Margin="5,0,350,0" SelectionChanged="SelectedNPLC_OnSelectionChanged">
+                    <ComboBoxItem>0.006</ComboBoxItem>
+                    <ComboBoxItem>0.02</ComboBoxItem>
+                    <ComboBoxItem>0.06</ComboBoxItem>
+                    <ComboBoxItem>0.2</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>100</ComboBoxItem>
+                </ComboBox>
+            </StackPanel> 
+            <CheckBox x:Name="InputAutoImpedance" Content="Auto Impedance" Checked="InputAutoImpedance_OnChecked" Unchecked="InputAutoImpedance_OnChecked"/>
+            <CheckBox x:Name="InputNullState" Content="Null enabled" Checked="InputNullState_OnChecked"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Null Value: "/>
+                <TextBox x:Name="InputNullValue" TextChanged="InputNullValue_OnTextChanged" Width="50"/> 
+                <TextBlock x:Name="NullValueTip" Text="! Cannot insert literals" Foreground="Red" FontSize="12"
+                           Visibility="Hidden" Margin="10,0,0,0" /> 
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+            <Button Content="Send" Click="Send_OnClick" Width="250" Height="50" Background="LightGreen" FontWeight="Bold" FontSize="22"/>
+            <Button Content="Close" Click="Close_OnClick" Width="210" Height="50" Background="LightCoral" FontWeight="Bold" FontSize="22"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
